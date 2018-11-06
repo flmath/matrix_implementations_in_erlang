@@ -1,0 +1,58 @@
+%%%-------------------------------------------------------------------
+%%% @author Math
+%%% @copyright (C) 2017, Math
+%%% @doc
+%%%
+%%% @end
+%%% Created : 10 Oct 2017 by Math
+%%%-------------------------------------------------------------------
+-module(matrix_as_orddict).
+-export([rows_sums/1, cols_sums/1,
+         get_value/3,set_value/4,
+         load/1]).
+
+load({Width,Height,Matrix})->
+    PropList = 
+	[{{X, Y}, element(X+(Y-1)*Width, Matrix)} || Y<-lists:seq(1,Height),X<-lists:seq(1,Width)],
+    orddict:from_list(lists:append([{height,Height},{width,Width}], PropList)).
+
+rows_sums(Dict)->
+	case orddict:fetch(height, Dict) of
+	    0  -> [];
+	    Height ->
+		Init = lists:foldl(fun(X,Acc)-> Acc#{X=>0} end,
+				   #{}, lists:seq(1,Height)),
+		maps:values(orddict:fold(fun sum_row/3,Init,Dict))	    
+	end.
+
+sum_row({_IndX, IndY}, Value, Result)->
+    Result#{IndY:=Value+maps:get(IndY,Result)};
+sum_row(height, _Value, Result) ->
+    Result;
+sum_row(width, _Value, Result) ->
+    Result.
+
+cols_sums(Dict)->
+    case orddict:fetch(height, Dict) of
+	0  -> [];
+	_more_than_zero ->
+	    {_, Acc} = orddict:fold(fun sum_col/3, {1,[]}, Dict),
+	     lists:reverse(Acc)		    
+    end.
+
+sum_col({IndX, _IndY}, Value, {IndX, []})->
+    {IndX, [Value]};
+sum_col({IndX, _IndY}, Value, {IndX, [Head|Acc]})->
+    {IndX, [Value+Head|Acc]};
+sum_col({IndX, _IndY}, Value, {_PrevIndex, [Head|Tail]}) ->
+    {IndX, [Value|[Head|Tail]]};
+sum_col(height, _Value, {V, Acc}) ->
+    {V, Acc};
+sum_col(width, _Value, {V, Acc}) ->
+    {V, Acc}.
+
+get_value(TheX, TheY, Dict)->
+    orddict:fetch({TheX,TheY},Dict).
+
+set_value(TheX, TheY, NewValue, Dict)->
+    orddict:store({TheX,TheY}, NewValue, Dict).

@@ -1,0 +1,11 @@
+{Representation: "matrix_as_orddict", Operation: "get_value", Width: "100", Height: "100", Runs: "100", ExecutionTime: 18178}
+{Representation: "matrix_as_orddict", Operation: "set_value", Width: "100", Height: "100", Runs: "100", ExecutionTime: 24782}
+{Representation: "matrix_as_orddict", Operation: "rows_sums", Width: "100", Height: "100", Runs: "100", ExecutionTime: 122011468}
+{Representation: "matrix_as_orddict", Operation: "cols_sums", Width: "100", Height: "100", Runs: "100", ExecutionTime: 118871167}
+{Representation: "matrix_as_orddict", Operation: "get_value", Width: "200", Height: "200", Runs: "100", ExecutionTime: 59793}
+{Representation: "matrix_as_orddict", Operation: "set_value", Width: "200", Height: "200", Runs: "100", ExecutionTime: 78079}
+{Representation: "matrix_as_orddict", Operation: "rows_sums", Width: "200", Height: "200", Runs: "100", ExecutionTime: 2278200982}
+{Representation: "matrix_as_orddict", Operation: "cols_sums", Width: "200", Height: "200", Runs: "100", ExecutionTime: 2269213159}
+{Representation: "matrix_as_orddict", Operation: "get_value", Width: "300", Height: "300", Runs: "100", ExecutionTime: 159996}
+{Representation: "matrix_as_orddict", Operation: "set_value", Width: "300", Height: "300", Runs: "100", ExecutionTime: 307380}
+{Representation: "matrix_as_orddict", Operation: "rows_sums", Width: "300", Height: "300", Runs: "100", ExecutionTime: 15348410657}
