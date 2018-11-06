@@ -7,7 +7,7 @@ Every implementation contains rows_sum/1, cols_sum/1, get_value/3 and set_value/
 Results
 -----
 
-[Jupyter notebook research](https://nbviewer.jupyter.org/urls/gitlab.com/erlang_matrices/matrix_implementations_in_erlang/raw/master/jupyter/main.ipynb)
+[Jupyter notebook research](https://nbviewer.jupyter.org/urls/github.com/flmath/matrix_implementations_in_erlang/raw/master/jupyter/main.ipynb)
 
 Build
 -----
